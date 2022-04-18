@@ -1,0 +1,171 @@
+1)Explain the boot process of linux ?
+A)BIOS POST
+  Boot loader (GRUB2)
+  Kernel initialization
+  Start systemd, the parent of all processes.
+  1)When power is first applied to the computer it runs the POST (Power On Self Test) which is part of the BIOS (Basic I/O System).
+  2)GRUB2 stands for "GRand Unified Bootloader, version 2" and it is now the primary bootloader for most current Linux distributions. 
+  GRUB2 is the program which makes the computer just smart enough to find the operating system kernel and load it into memory.
+  3)All of the kernels are in a self-extracting, compressed format to save space. The kernels are located in the /boot directory, 
+    along with an initial RAM disk image, and device maps of the hard drives.After the selected kernel is loaded into memory and begins executing
+  Once the kernel has extracted itself, it loads systemd, which is the replacement for the old SysV init program, and turns control over to it.
+  4)systemd is the mother of all processes and it is responsible for bringing the Linux host up to a state in which productive work can be done.
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+2)how to zip the file in a directory  and remove the file in that workspace ? 
+
+3)could you please explain about ssh ?
+
+4)what are the run-levels in linux ?
+A)Runlevel 0	shuts down the system
+  Runlevel 1	single-user mode
+  Runlevel 2	multi-user mode without networking
+  Runlevel 3	multi-user mode with networking
+  Runlevel 4	user-definable
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+5)explain about the file system of linux ?
+A)Linux file system is generally a built-in layer of a Linux operating system used to handle the data management of the storage. 
+  It helps to arrange the file on the disk storage. It manages the file name, file size, creation date, and much more information about a file.
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+6)what is ACL in linux ?
+A)Access control list (ACL) provides an additional, more flexible permission mechanism for file systems. 
+  It is designed to assist with UNIX file permissions. ACL allows you to give permissions for any user or group to any disc resource.
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+7)What are the permissions of a linux file ?
+A)Read (r) : The read permission allows you to open and read the content of a file. ...
+  Write (w) : The write permission allows you to edit, remove or rename a file. ...
+  Execute (x): In Unix type system, you can't run or execute a program unless execute permission is set.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+8)how will you check the system performance ?
+A)top command:used to see the all the information about the system performance.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+9)what is LVM ?
+A)Logical Volume Manager (LVM) is used on Linux to manage hard drives and other storage devices. 
+  As the name implies, it can sort raw storage into logical volumes, making it easy to configure and use.
+
+10)What is umask ?
+
+11)can i turn linux system into a proxy server ?
+
+12)difference between working and home directory ?
+
+13)What is difference between bin and sbin?
+Ans: binaries present in bin and sbin are accessed by root user only where as normal users/systemusers have only access to bin binaries that are available in bin directory.
+
+14)What does 's' means in sbin ? 
+Ans:)'s' means system--It also contains binary files 
+
+15)Can you explain about Linux File Structure ?
+
+16)STR==What is the command to grab the error in the log with a word <word> in it ?
+
+17)What is the command to find the next 5 lines after the error ?
+
+18)What is command to check the process that are running ?
+
+19)What is the use of TOP command ?
+
+20) IF i need to find word  'krishna' in multiple files in a directory what is the command ?
+
+21)If there are nested folders how to find the particular file path using the file name ?
+
+22)How much disk space utilizied command ?
+
+23)There are lot of files and folders how to find the volume of folders and files ?
+
+24)IF some thing is going on and application is not working properly in the server then what is process you will do ?
+
+25)Where will you check OS log ? Any specific file name ?
+ 
+26)Where will you check cron job logs ?
+
+27)If i forgot the root password then how will change the root password ?
+
+28)I want to check how many processors in the server ?
+
+29)How to check the buffer memory in linux ?
+
+30)Any other command you will check for the system performance other than TOP command ?
+Ans: Iscpu
+
+--
+
+31)How to create nested directory folder inside the folder with a single line of command ?
+
+32)What is inode ?
+Ans: Inode is a data structure. It can store the file/dir information. It can have permissions,group , owner,size
+
+33)What is the information does the inode doesn't contain ?
+Ans: Filename  
+
+34)What is the command to check the inode number ?
+Ans: ls -li
+
+35)What is the dfference between sudo su - and sudo su ?
+Ans: 
+sudo su - : It will switch to the root user and it will point to the root user home directory and it will load root user configurations.
+sudo su : It will switch to the root user and it will point to current user directory  and it will not load root user configurations.
+
+36)How to find all the empty files in a empty directory ?
+Ans: find . -type f -empty ---> It will give all the empty files in home directory 
+
+37)How to find all the empty directory ?
+Ans: find . -type d -empty 
+
+38)What are the default umask value for root user and normal user ?
+Ans :
+default value for root user --- 0022
+default value for normal user--- 0002
+
+
+39)If a file has -WX-WX-WX devops.txt  which contains 'hello'  inside it,then can we update the content to 'rajesh' ?
+Ans: No, we can't change the file content as it doesn't have read permissions as without reading we can't change it.
+
+40)What is the difference between the Softlink and Hardlink ?
+Ans:Hard link
+-----------
+ln /filename destination file location -->Here it will create the a new file in destination and updates it automatically whenever there is an update in source 
+--Permissions,Inode number  also same for the destination file which it is created 
+--By using hardlink storage is taking more as it has two files like source and destination files have same propertities.To overcome this we have softlink
+Softlink
+---------
+--Softlink we have permissions different 
+--After removing original file the softlink file we cannot able to access
+--It will create a shortcut  
+--Inode number also different
+ln -s sourcefilename   destinationfilename
+
+41)I have one file 'sample.txt' where it contains red in many places and i want to replace red with the blue ?
+Ans: sed -i 's/red/blue/g' <file name> ---> It will replace and save the file  
+
+42)What is meant by load average how do you get it ?
+Ans: uptime 
+loadaverage: 0.00  0.00  0.00 
+	     1st    5th    15th minutes  it will show like cpu average
+
+43)What is the command to check for the services in linux ?
+Ans:  systemctl list-unit-files  -->It will list all the services 
+
+44)Does kill being used only for killing the process ?
+Ans: No, Kill has 64 signals based on the number the assosciate task will be executed.
+
+45)Where are we allocating swap memory ?
+
+46)Command to add for adding a user ?
+Ans: useradd <username>
+
+47)What is the root user UID ?
+Ans: 0--> is the user id --command--> id root
+
+48)What is the normal user id starts in 6.x and 7.x version ?
+ Ans: 6.x --> 500
+          7.x --> 1000 -->starts from 1000
+
+49)Where user password is going to store ?
+Ans: In shadow file -->cat /etc/shadow
+
+50)Command to see other user crontable ?
+Ans: crontab -l -u <username>
+
+51)If the crontab is not working what will you do ?
+
+52)What is the difference between curl and wget ?
